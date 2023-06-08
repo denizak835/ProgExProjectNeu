@@ -36,8 +36,7 @@ public abstract class Clothing {
         this.filter = filter;
         File file = new File(imagePath);
         URI uri = file.toURI();
-        String uriString = uri.toString();
-        this.imagePath = uriString;
+        this.imagePath = uri.toString();
     }
 
     public Image getImage() {

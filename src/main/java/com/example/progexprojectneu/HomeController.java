@@ -20,7 +20,7 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class ManPantsController implements Initializable {
+public class HomeController implements Initializable {
 
     @FXML
     private ImageView imageView;
@@ -78,25 +78,30 @@ public class ManPantsController implements Initializable {
                 String email = resultSet.getString("email");
 
                 // Die Attribute in Labels anzeigen
-                // Die Attribute in Labels anzeigen
                 Label usernameLabel = new Label("Username: " + username);
                 Label passwordLabel = new Label("Password: " + password);
 
-// Buttons für das Ändern des Benutzernamens und des Passworts erstellen
+                // Buttons für das Ändern des Benutzernamens und des Passworts erstellen
                 Button changeUsernameButton = new Button("Change Username");
                 Button changePasswordButton = new Button("Change Password");
+                Button changeEmailButton = new Button("Change E-Mail Adress");
 
-// Aktionen für die Buttons festlegen
+                // Aktionen für die Buttons festlegen
                 changeUsernameButton.setOnAction(e -> handleChangeUsernameButton(username));
                 changePasswordButton.setOnAction(e -> handleChangePasswordButton(username));
 
-// Labels und Buttons zur VBox hinzufügen
+                Label titleLabel = new Label("My Account Information");
+                titleLabel.setStyle("-fx-font-size: 25px; -fx-font-weight: bold;-fx-text-fill: lightblue;");
+                ClothingVBox.getChildren().addAll(titleLabel);
+                ClothingVBox.setSpacing(20);
+                // Labels und Buttons zur VBox hinzufügen
                 ClothingVBox.getChildren().addAll(usernameLabel, changeUsernameButton, passwordLabel, changePasswordButton);
+
 
                 Label emailLabel = new Label("Email: " + email);
 
                 // Labels zur VBox hinzufügen
-                ClothingVBox.getChildren().addAll(usernameLabel, passwordLabel, emailLabel);
+                ClothingVBox.getChildren().addAll(emailLabel, changeEmailButton);
             }
 
             resultSet.close();
@@ -152,8 +157,6 @@ public class ManPantsController implements Initializable {
         });
     }
 
-
-
     @FXML
     private void handleChangePasswordButton(String username) {
         // Erstellen Sie ein Textfeld für die Eingabe des neuen Passworts
@@ -187,7 +190,6 @@ public class ManPantsController implements Initializable {
         // Fügen Sie das Textfeld und den Button zur VBox hinzu
         ClothingVBox.getChildren().addAll(newPasswordField, confirmButton);
     }
-
 
     public void setClothing(Clothing clothing) {
         this.clothing = clothing;

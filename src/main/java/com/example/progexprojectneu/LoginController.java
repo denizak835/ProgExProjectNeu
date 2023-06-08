@@ -95,9 +95,9 @@ public class LoginController implements Initializable {
         boolean loggedIn = account.login(username, password);
         if (loggedIn) {
             try {
-                FXMLLoader loader = new FXMLLoader((getClass().getResource("manpants.fxml")));
+                FXMLLoader loader = new FXMLLoader((getClass().getResource("Home.fxml")));
                 Parent root = loader.load();
-                ManPantsController controller = loader.getController();
+                HomeController controller = loader.getController();
 
                 // Setzen Sie die Werte für loggedinusername und loggedinpassword
                 controller.setLoggedInCredentials(username, password);

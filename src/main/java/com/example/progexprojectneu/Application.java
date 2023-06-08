@@ -13,6 +13,7 @@ public class Application extends javafx.application.Application {
         launch();
     }
 
+
     @Override
     public void start(Stage stage) throws IOException {
         Account account = new Account("root", "denizdeniz");

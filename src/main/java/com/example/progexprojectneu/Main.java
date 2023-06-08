@@ -6,10 +6,11 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) {
         Account account = new Account("root", "denizdeniz");
-        account.registration("t5","t5","TESTIFUL");
-        account.grantPermissionsToAccount("t5", "clothing");
+        //account.registration("t5","t5","TESTIFUL");
+        //account.grantPermissionsToAccount("t5", "clothing");
         String imagePath = "C:/Users/Deniz/IdeaProjects/ProgExProject/GUI/Zeichnung.png";
         Pants pant = new Pants("Rote Hose", 99.99, "male", "XL", "Kids", imagePath);
+        pant.showImage();
         // Jackets jacket = new Jackets("Gucci Jacke", 299.99, "female", "S", "Women");
 
     }
